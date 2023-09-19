@@ -1,0 +1,32 @@
+{
+  "storage": {
+    "type": "gcs",
+    "bucket": "my-assets",
+    "pathPrefix": "my-prefix/",
+    "assetBaseUrl": "https://assets.domain.com/"
+  },
+  "importMapDeployer": {
+    "url": "http://localhost:5000"
+  },
+  "defaultAction": "keep",
+  "rules": [
+    {
+      "name": "my-rule",
+      "action": "keep",
+      "versionSelector": "regex",
+      "olderThanAmount": 2,
+      "olderThanUnit": "month"
+    },
+    {
+      "name": "my-rule2",
+      "action": "delete",
+      "olderThanAmount": 3,
+      "olderThanUnit": "month"
+    },
+    {
+      "name": "my-rule3",
+      "action": "delete",
+      "versionSelector": ".*-to-delete$"
+    }
+  ]
+}

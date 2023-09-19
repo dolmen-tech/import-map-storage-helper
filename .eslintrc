@@ -1,0 +1,9 @@
+{
+  "extends": ["ts-important-stuff", "plugin:prettier/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "root": true,
+  "rules": {
+    "no-console": "off"
+  }
+}
