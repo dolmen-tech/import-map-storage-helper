@@ -147,13 +147,12 @@ A rule has the following properties :
   - `amount`: the amount of time
   - `unit`: the unit of the amount given. This must be one of [available unit](https://day.js.org/docs/en/manipulate/add#list-of-all-available-units).
 
-
 ### rules samples
 
 #### delete old development version
 
 Assuming that the development version look like `2.4.0-dev.3` and match `"^\\d*.\\d*.\\d*-dev.\\d*"`.
-To delete development versions more than 3 weeks old use the following configuration : 
+To delete development versions more than 3 weeks old use the following configuration :
 
 ```json
 {
@@ -172,5 +171,3 @@ To delete development versions more than 3 weeks old use the following configura
   ]
 }
 ```
-
-
