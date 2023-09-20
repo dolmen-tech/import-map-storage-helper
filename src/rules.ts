@@ -1,5 +1,5 @@
 import { createImportMapDeployer } from "./import-map-deployer";
-import { Configuration, Package } from "./types";
+import { Configuration, DurationConfig, Package } from "./types";
 import * as dayjs from "dayjs";
 
 export enum Action {
@@ -26,8 +26,7 @@ export class Rule {
     action: string,
     now: dayjs.Dayjs,
     versionSelector?: string,
-    olderThanAmount?: number,
-    olderThanUnit?: string,
+    olderThan?: DurationConfig,
     nextRule?: Rule
   ) {
     this.name = name;
@@ -35,10 +34,10 @@ export class Rule {
     if (versionSelector) {
       this.versionSelector = new RegExp(versionSelector);
     }
-    if (olderThanAmount && olderThanUnit) {
+    if (olderThan) {
       this.olderThan = now.subtract(
-        olderThanAmount,
-        olderThanUnit as dayjs.ManipulateType
+        olderThan.amount,
+        olderThan.unit as dayjs.ManipulateType
       );
     }
     this.nextRule = nextRule;
@@ -143,8 +142,7 @@ export class Engine {
         ruleConfig.action,
         now,
         ruleConfig.versionSelector,
-        ruleConfig.olderThanAmount,
-        ruleConfig.olderThanUnit,
+        ruleConfig.olderThan,
         previousRule
       );
       previousRule = rule;

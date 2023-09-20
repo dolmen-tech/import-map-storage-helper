@@ -202,8 +202,7 @@ describe("Rule", () => {
       "delete",
       dayjs.default("2023-09-18T14:11:00.000Z"),
       undefined,
-      14,
-      "day"
+      { amount: 14, unit: "day" }
     );
 
     const recentVersion: Package = {
@@ -228,8 +227,7 @@ describe("Rule", () => {
       dayjs.default("2023-09-18T14:11:00.000Z"),
       // eslint-disable-next-line prettier/prettier
       "^\\d*.\\d*.\\d*-rc.\\d*",
-      2,
-      "week"
+      { amount: 2, unit: "week" }
     );
 
     const recentRelaseVersion: Package = {
@@ -265,8 +263,7 @@ describe("Rule", () => {
       "delete",
       dayjs.default("2023-09-18T14:11:00.000Z"),
       undefined,
-      2,
-      "week"
+      { amount: 2, unit: "week" }
     );
     const rule1 = new Rule(
       "delete-rc",
@@ -274,7 +271,6 @@ describe("Rule", () => {
       dayjs.default("2023-09-18T14:11:00.000Z"),
       // eslint-disable-next-line prettier/prettier
       "^\\d*.\\d*.\\d*-rc.\\d*",
-      undefined,
       undefined,
       rule2
     );

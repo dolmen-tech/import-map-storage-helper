@@ -14,14 +14,18 @@
       "name": "my-rule",
       "action": "keep",
       "versionSelector": "regex",
-      "olderThanAmount": 2,
-      "olderThanUnit": "month"
+      "olderThan": {
+        "amount": 2,
+        "unit": "month"
+      }
     },
     {
       "name": "my-rule2",
       "action": "delete",
-      "olderThanAmount": 3,
-      "olderThanUnit": "month"
+      "olderThan": {
+        "amount": 3,
+        "unit": "month"
+      }
     },
     {
       "name": "my-rule3",

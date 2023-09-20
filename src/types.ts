@@ -19,12 +19,16 @@ export type ImdConfig = {
   url: string;
 };
 
+export type DurationConfig = {
+  amount: number;
+  unit: string;
+};
+
 export type RuleConfig = {
   name: string;
   action: string;
   versionSelector?: string;
-  olderThanAmount?: number;
-  olderThanUnit?: string;
+  olderThan?: DurationConfig;
 };
 
 export type Configuration = {
