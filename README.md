@@ -131,7 +131,7 @@ Note that you must have the `IMD_USERNAME` and `IMD_PASSWORD` environment variab
 
 ### defaultAction
 
-This the action performed when no rule match for application version. It can be one of `keep` or `delete`.
+This is the action performed when no rule match for application version. It can be one of `keep` or `delete`.
 
 ### rules
 
@@ -139,13 +139,13 @@ Rules are the cleanning logic. They describe which application version must be k
 
 A rule has the following properties :
 
-- `name`: the rule name
+- `name`: The rule name
 - `action`: The action to perform. (`keep` or `delete`)
 - `versionSelector` (optional): A [javascript string pattern Regexp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) to select a version the rule can be applied
 
 - `olderThan` (optional): An object that represent a Duration. This let apply the rule only on version orlder than the given duration
-  - `amount`: the amount of time
-  - `unit`: the unit of the amount given. This must be one of [available unit](https://day.js.org/docs/en/manipulate/add#list-of-all-available-units).
+  - `amount`: The amount of time
+  - `unit`: The unit of the amount given. This must be one of [available unit](https://day.js.org/docs/en/manipulate/add#list-of-all-available-units).
 
 ### rules samples
 
