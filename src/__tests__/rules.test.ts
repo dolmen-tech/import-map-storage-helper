@@ -4,7 +4,7 @@ import {
 } from "../import-map-deployer";
 import { Action, Engine, Rule } from "../rules";
 import { Configuration, Package } from "../types";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 
 jest.mock("../import-map-deployer.ts");
 
@@ -107,7 +107,7 @@ describe("Engine", () => {
     engine.ruleChain = new Rule(
       "delete-everything",
       "delete",
-      dayjs.default("2023-09-18T14:11:00.000Z")
+      dayjs("2023-09-18T14:11:00.000Z")
     );
 
     const pack: Package = {
@@ -140,7 +140,7 @@ describe("Engine", () => {
     engine.ruleChain = new Rule(
       "delete-everything",
       "delete",
-      dayjs.default("2023-09-18T14:11:00.000Z")
+      dayjs("2023-09-18T14:11:00.000Z")
     );
 
     const pack: Package = {
@@ -158,7 +158,7 @@ describe("Rule", () => {
     const rule = new Rule(
       "keep-everything",
       "keep",
-      dayjs.default("2023-09-18T14:11:00.000Z")
+      dayjs("2023-09-18T14:11:00.000Z")
     );
 
     const pack: Package = {
@@ -176,7 +176,7 @@ describe("Rule", () => {
     const rule = new Rule(
       "delete-release-candidate",
       "delete",
-      dayjs.default("2023-09-18T14:11:00.000Z"),
+      dayjs("2023-09-18T14:11:00.000Z"),
       // eslint-disable-next-line prettier/prettier
       "^\\d*.\\d*.\\d*-rc.\\d*"
     );
@@ -200,7 +200,7 @@ describe("Rule", () => {
     const rule = new Rule(
       "delete-14day-old",
       "delete",
-      dayjs.default("2023-09-18T14:11:00.000Z"),
+      dayjs("2023-09-18T14:11:00.000Z"),
       undefined,
       { amount: 14, unit: "day" }
     );
@@ -224,7 +224,7 @@ describe("Rule", () => {
     const rule = new Rule(
       "delete-rc-2week-old",
       "delete",
-      dayjs.default("2023-09-18T14:11:00.000Z"),
+      dayjs("2023-09-18T14:11:00.000Z"),
       // eslint-disable-next-line prettier/prettier
       "^\\d*.\\d*.\\d*-rc.\\d*",
       { amount: 2, unit: "week" }
@@ -261,14 +261,14 @@ describe("Rule", () => {
     const rule2 = new Rule(
       "delete-2week-old",
       "delete",
-      dayjs.default("2023-09-18T14:11:00.000Z"),
+      dayjs("2023-09-18T14:11:00.000Z"),
       undefined,
       { amount: 2, unit: "week" }
     );
     const rule1 = new Rule(
       "delete-rc",
       "delete",
-      dayjs.default("2023-09-18T14:11:00.000Z"),
+      dayjs("2023-09-18T14:11:00.000Z"),
       // eslint-disable-next-line prettier/prettier
       "^\\d*.\\d*.\\d*-rc.\\d*",
       undefined,

@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
+    "rootDir": ".",
+    "outDir": "dist/ts",
     "strict": true,
-    "target": "es6",
-    "module": "CommonJS",
+    "target": "ES6",
+    "module": "ESNext",
     "sourceMap": false,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "declaration": true,
+    "noEmitOnError": true,
+    "lib": ["ESNext"],
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test*"]

@@ -8,13 +8,16 @@ import { createMode } from "./modes";
 import path from "path";
 import fs from "fs";
 import { Configuration } from "./types";
+import { version } from "../package.json";
 
 const program = new Command();
 
+let standard = fs.readFileSync(path.join(__dirname, "Standard.flf"), "utf8");
+figlet.parseFont("Standard", standard);
 console.info(figlet.textSync("Storage Helper"));
 console.info("");
 
-program.version("1.0.0").description("ImportMap Storage Helper");
+program.version(version).description("ImportMap Storage Helper");
 
 program
   .command("clean")

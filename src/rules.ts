@@ -1,6 +1,6 @@
+import dayjs, { Dayjs, ManipulateType } from "dayjs";
 import { createImportMapDeployer } from "./import-map-deployer";
 import { Configuration, DurationConfig, Package } from "./types";
-import * as dayjs from "dayjs";
 
 export enum Action {
   KEEP,
@@ -18,13 +18,13 @@ export class Rule {
   name: string;
   action: Action;
   versionSelector?: RegExp;
-  olderThan?: dayjs.Dayjs;
+  olderThan?: Dayjs;
   nextRule?: Rule;
 
   constructor(
     name: string,
     action: string,
-    now: dayjs.Dayjs,
+    now: Dayjs,
     versionSelector?: string,
     olderThan?: DurationConfig,
     nextRule?: Rule
@@ -37,7 +37,7 @@ export class Rule {
     if (olderThan) {
       this.olderThan = now.subtract(
         olderThan.amount,
-        olderThan.unit as dayjs.ManipulateType
+        olderThan.unit as ManipulateType
       );
     }
     this.nextRule = nextRule;
@@ -55,7 +55,7 @@ export class Rule {
     if (this.match(pack.version)) {
       if (
         !this.olderThan ||
-        dayjs.default(pack.creationDate).isBefore(this.olderThan)
+        dayjs(pack.creationDate).isBefore(this.olderThan)
       ) {
         return this.action;
       }
@@ -132,7 +132,7 @@ export class Engine {
   }
 
   loadRules(): void {
-    const now = dayjs.default();
+    const now = dayjs();
     let previousRule: Rule | undefined = undefined;
     // reverse loop to build rule chain
     for (let i = this._configuration.rules.length - 1; i >= 0; i--) {
