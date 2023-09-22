@@ -6,6 +6,8 @@ The first goal of the tool is to clean unused assets based on configurable rules
 Import-map-storage-helper use the [import-map-deployer](https://github.com/single-spa/import-map-deployer) APIs to list used assets. This first version only support Google Cloud Storage and contributions are welcome to add more storage providers.
 
 - [Installation](#installation)
+  - [Node](#node)
+  - [Docker](#docker)
 - [Usage](#usage)
 - [Configuration](#configuration)
   - [storage](#storage)
@@ -17,11 +19,17 @@ Import-map-storage-helper use the [import-map-deployer](https://github.com/singl
 
 ## Installation
 
+### Node
+
 Install from npm registry
 
 ```sh
 npm install --global import-map-storage-helper
 ```
+
+### Docker
+
+A docker image is available in the [official Docker registry](https://hub.docker.com/r/dolmentech/import-map-storage-helper).
 
 ## Usage
 
